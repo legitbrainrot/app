@@ -1,0 +1,508 @@
+openapi: 3.0.3
+info:
+  title: Roblox Trading Platform API
+  description: API for secure Roblox item trading with escrow
+  version: 1.0.0
+
+servers:
+  - url: /api/v1
+
+paths:
+  # Authentication
+  /auth/roblox:
+    get:
+      summary: Initiate Roblox OAuth
+      tags: [Authentication]
+      responses:
+        '302':
+          description: Redirect to Roblox OAuth
+
+  /auth/callback:
+    get:
+      summary: Handle OAuth callback
+      tags: [Authentication]
+      parameters:
+        - name: code
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '302':
+          description: Redirect after successful auth
+        '400':
+          description: Invalid OAuth code
+
+  # Trades
+  /trades:
+    get:
+      summary: Search trades
+      tags: [Trades]
+      parameters:
+        - name: q
+          in: query
+          description: Search query for item name
+          schema:
+            type: string
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [ACTIVE, NEGOTIATING, PAYMENT_PENDING]
+      responses:
+        '200':
+          description: List of trades
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  trades:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Trade'
+
+    post:
+      summary: Create trade listing
+      tags: [Trades]
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [itemName, itemImage, price]
+              properties:
+                itemName:
+                  type: string
+                  minLength: 1
+                  maxLength: 100
+                itemImage:
+                  type: string
+                  format: uri
+                description:
+                  type: string
+                  maxLength: 500
+                price:
+                  type: number
+                  minimum: 0.01
+      responses:
+        '201':
+          description: Trade created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trade'
+        '400':
+          description: Invalid input
+        '401':
+          description: Unauthorized
+
+  /trades/{tradeId}:
+    get:
+      summary: Get trade details
+      tags: [Trades]
+      parameters:
+        - name: tradeId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Trade details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trade'
+        '404':
+          description: Trade not found
+
+    patch:
+      summary: Update trade status
+      tags: [Trades]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: tradeId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  enum: [NEGOTIATING, CANCELLED]
+      responses:
+        '200':
+          description: Trade updated
+        '403':
+          description: Forbidden
+        '404':
+          description: Trade not found
+
+  /trades/{tradeId}/join:
+    post:
+      summary: Join trade as participant
+      tags: [Trades]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: tradeId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Joined trade
+        '400':
+          description: Cannot join trade
+        '401':
+          description: Unauthorized
+
+  # Chat
+  /trades/{tradeId}/messages:
+    get:
+      summary: Get trade chat messages
+      tags: [Chat]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: tradeId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 50
+        - name: before
+          in: query
+          description: Message timestamp for pagination
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: Chat messages
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ChatMessage'
+
+    post:
+      summary: Send chat message
+      tags: [Chat]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: tradeId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [content]
+              properties:
+                content:
+                  type: string
+                  minLength: 1
+                  maxLength: 500
+      responses:
+        '201':
+          description: Message sent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatMessage'
+        '400':
+          description: Invalid message
+        '403':
+          description: Not a trade participant
+
+  # Payments
+  /trades/{tradeId}/payment-intent:
+    post:
+      summary: Create payment intent
+      tags: [Payments]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: tradeId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: Payment intent created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  clientSecret:
+                    type: string
+                  paymentId:
+                    type: string
+        '400':
+          description: Cannot create payment for this trade
+        '403':
+          description: Not authorized to pay for this trade
+
+  /payments/{paymentId}/confirm:
+    post:
+      summary: Confirm payment completion (webhook)
+      tags: [Payments]
+      parameters:
+        - name: paymentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Payment confirmed
+        '404':
+          description: Payment not found
+
+  # Middleman
+  /middleman/auth:
+    post:
+      summary: Middleman authentication
+      tags: [Middleman]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [userId, password]
+              properties:
+                userId:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Authentication successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                  middlemanId:
+                    type: string
+        '401':
+          description: Invalid credentials
+
+  /middleman/trades/pending:
+    get:
+      summary: Get trades pending middleman supervision
+      tags: [Middleman]
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Pending trades
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  trades:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Trade'
+
+  /middleman/trades/{tradeId}/join:
+    post:
+      summary: Join trade as middleman
+      tags: [Middleman]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: tradeId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Joined as middleman
+        '400':
+          description: Cannot join this trade
+        '403':
+          description: Not authorized
+
+  /middleman/trades/{tradeId}/complete:
+    post:
+      summary: Mark trade as completed
+      tags: [Middleman]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: tradeId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [approved]
+              properties:
+                approved:
+                  type: boolean
+                notes:
+                  type: string
+                  maxLength: 500
+      responses:
+        '200':
+          description: Trade completed
+        '403':
+          description: Not the assigned middleman
+
+  # File uploads
+  /upload/image:
+    post:
+      summary: Get signed URL for image upload
+      tags: [Uploads]
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [fileName, fileType]
+              properties:
+                fileName:
+                  type: string
+                fileType:
+                  type: string
+                  enum: [image/jpeg, image/png, image/webp]
+      responses:
+        '200':
+          description: Signed URL for upload
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uploadUrl:
+                    type: string
+                  fileUrl:
+                    type: string
+        '400':
+          description: Invalid file type
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+
+  schemas:
+    Trade:
+      type: object
+      properties:
+        id:
+          type: string
+        creatorId:
+          type: string
+        itemName:
+          type: string
+        itemImage:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        status:
+          type: string
+          enum: [ACTIVE, NEGOTIATING, PAYMENT_PENDING, PAYMENT_COMPLETE, IN_PROGRESS, COMPLETED, CANCELLED, REFUNDED]
+        paymentDeadline:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        creator:
+          $ref: '#/components/schemas/User'
+        participants:
+          type: array
+          items:
+            $ref: '#/components/schemas/TradeParticipant'
+
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        avatar:
+          type: string
+
+    TradeParticipant:
+      type: object
+      properties:
+        id:
+          type: string
+        userId:
+          type: string
+        role:
+          type: string
+        joinedAt:
+          type: string
+          format: date-time
+        user:
+          $ref: '#/components/schemas/User'
+
+    ChatMessage:
+      type: object
+      properties:
+        id:
+          type: string
+        tradeId:
+          type: string
+        userId:
+          type: string
+        content:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        user:
+          $ref: '#/components/schemas/User'

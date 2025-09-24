@@ -1,0 +1,137 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User model with Roblox authentication fields
+model User {
+  id          String   @id @default(cuid())
+  robloxId    String   @unique
+  username    String
+  avatar      String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  createdTrades       Trade[] @relation("TradeCreator")
+  participatingTrades TradeParticipant[]
+  sentMessages        ChatMessage[]
+  payments            Payment[]
+
+  @@map("users")
+}
+
+// Middleman model with password and availability fields
+model Middleman {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  password    String   // Hashed password
+  isAvailable Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  supervisedTrades Trade[]
+
+  @@map("middlemen")
+}
+
+// Trade status enum
+enum TradeStatus {
+  ACTIVE
+  NEGOTIATING
+  PAYMENT_PENDING
+  PAYMENT_COMPLETE
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  REFUNDED
+}
+
+// Trade model with status enum and relationships
+model Trade {
+  id              String      @id @default(cuid())
+  creatorId       String
+  itemName        String
+  itemImage       String
+  description     String?
+  price           Decimal
+  status          TradeStatus @default(ACTIVE)
+  paymentDeadline DateTime?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  middlemanId     String?
+
+  // Relations
+  creator      User               @relation("TradeCreator", fields: [creatorId], references: [id])
+  participants TradeParticipant[]
+  chatMessages ChatMessage[]
+  payments     Payment[]
+  middleman    Middleman?         @relation(fields: [middlemanId], references: [id])
+
+  @@map("trades")
+}
+
+// TradeParticipant model linking users to trades
+model TradeParticipant {
+  id       String   @id @default(cuid())
+  tradeId  String
+  userId   String
+  role     String   // "buyer" | "creator"
+  joinedAt DateTime @default(now())
+
+  // Relations
+  trade Trade @relation(fields: [tradeId], references: [id], onDelete: Cascade)
+  user  User  @relation(fields: [userId], references: [id])
+
+  @@unique([tradeId, userId])
+  @@map("trade_participants")
+}
+
+// ChatMessage model for real-time messaging
+model ChatMessage {
+  id        String   @id @default(cuid())
+  tradeId   String
+  userId    String
+  content   String
+  timestamp DateTime @default(now())
+
+  // Relations
+  trade Trade @relation(fields: [tradeId], references: [id], onDelete: Cascade)
+  user  User  @relation(fields: [userId], references: [id])
+
+  @@map("chat_messages")
+}
+
+// Payment status enum
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+// Payment model with Stripe integration fields
+model Payment {
+  id             String        @id @default(cuid())
+  tradeId        String
+  userId         String
+  stripeIntentId String        @unique
+  amount         Decimal
+  status         PaymentStatus @default(PENDING)
+  createdAt      DateTime      @default(now())
+  completedAt    DateTime?
+
+  // Relations
+  trade Trade @relation(fields: [tradeId], references: [id])
+  user  User  @relation(fields: [userId], references: [id])
+
+  @@map("payments")
+}

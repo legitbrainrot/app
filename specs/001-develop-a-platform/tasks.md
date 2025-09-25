@@ -65,78 +65,78 @@
 
 ## Phase 3.4: Tests First (TDD) ⚠️ MUST COMPLETE BEFORE 3.5
 **CRITICAL: These tests MUST be written and MUST FAIL before ANY API implementation**
-- [ ] T021 [P] Contract test GET /api/trades (search functionality) in tests/contract/test_trades_get.spec.ts
-- [ ] T022 [P] Contract test POST /api/trades (create listing) in tests/contract/test_trades_post.spec.ts
-- [ ] T023 [P] Contract test POST /api/trades/{id}/join (join trade) in tests/contract/test_trades_join.spec.ts
-- [ ] T024 [P] Contract test GET /api/trades/{id}/messages (chat history) in tests/contract/test_chat_get.spec.ts
-- [ ] T025 [P] Contract test POST /api/trades/{id}/messages (send message) in tests/contract/test_chat_post.spec.ts
-- [ ] T026 [P] Contract test POST /api/trades/{id}/payment-intent (create payment) in tests/contract/test_payment_intent.spec.ts
-- [ ] T027 [P] Contract test POST /api/middleman/trades/{id}/complete (approve trade) in tests/contract/test_middleman_complete.spec.ts
-- [ ] T028 [P] Contract test POST /api/upload/image (file upload) in tests/contract/test_upload.spec.ts
-- [ ] T029 [P] Integration test: Complete user registration flow in tests/integration/test_auth.spec.ts
-- [ ] T030 [P] Integration test: Full trade creation and search in tests/integration/test_trades.spec.ts
-- [ ] T031 [P] Integration test: Real-time chat functionality in tests/integration/test_chat.spec.ts
-- [ ] T032 [P] Integration test: Payment and escrow workflow in tests/integration/test_payments.spec.ts
-- [ ] T033 [P] Integration test: Middleman supervision workflow in tests/integration/test_middleman.spec.ts
+- [x] T021 [P] Contract test GET /api/trades (search functionality) in tests/contract/test_trades_get.spec.ts
+- [x] T022 [P] Contract test POST /api/trades (create listing) in tests/contract/test_trades_post.spec.ts
+- [x] T023 [P] Contract test POST /api/trades/{id}/join (join trade) in tests/contract/test_trades_join.spec.ts
+- [x] T024 [P] Contract test GET /api/trades/{id}/messages (chat history) in tests/contract/test_chat_get.spec.ts
+- [x] T025 [P] Contract test POST /api/trades/{id}/messages (send message) in tests/contract/test_chat_post.spec.ts
+- [x] T026 [P] Contract test POST /api/trades/{id}/payment-intent (create payment) in tests/contract/test_payment_intent.spec.ts
+- [x] T027 [P] Contract test POST /api/middleman/trades/{id}/complete (approve trade) in tests/contract/test_middleman_complete.spec.ts
+- [x] T028 [P] Contract test POST /api/upload/image (file upload) in tests/contract/test_upload.spec.ts
+- [x] T029 [P] Integration test: Complete user registration flow in tests/integration/test_user_flow.spec.ts
+- [x] T030 [P] Integration test: Full trade creation and search in tests/integration/test_trade_interaction.spec.ts
+- [x] T031 [P] Integration test: Real-time chat functionality in tests/integration/test_trade_interaction.spec.ts
+- [x] T032 [P] Integration test: Payment and escrow workflow in tests/integration/test_payment_flow.spec.ts
+- [x] T033 [P] Integration test: Middleman supervision workflow in tests/integration/test_middleman_auth.spec.ts
 
 ## Phase 3.5: API Implementation (ONLY after tests are failing)
-- [ ] T034 [P] Implement GET /api/trades with search and filtering in src/app/api/trades/route.ts
-- [ ] T035 [P] Implement POST /api/trades for creating listings in src/app/api/trades/route.ts
-- [ ] T036 [P] Implement GET /api/trades/[id] for trade details in src/app/api/trades/[id]/route.ts
-- [ ] T037 [P] Implement POST /api/trades/[id]/join for trade participation in src/app/api/trades/[id]/join/route.ts
-- [ ] T038 [P] Implement PATCH /api/trades/[id] for status updates in src/app/api/trades/[id]/route.ts
-- [ ] T039 [P] Implement GET /api/trades/[id]/messages for chat history in src/app/api/trades/[id]/messages/route.ts
-- [ ] T040 [P] Implement POST /api/trades/[id]/messages for sending messages in src/app/api/trades/[id]/messages/route.ts
-- [ ] T041 [P] Implement POST /api/trades/[id]/payment-intent for Stripe integration in src/app/api/trades/[id]/payment-intent/route.ts
-- [ ] T042 [P] Implement POST /api/payments/[id]/confirm for webhook handling in src/app/api/payments/[id]/confirm/route.ts
-- [ ] T043 [P] Implement GET /api/middleman/trades/pending for middleman queue in src/app/api/middleman/trades/pending/route.ts
-- [ ] T044 [P] Implement POST /api/middleman/trades/[id]/join in src/app/api/middleman/trades/[id]/join/route.ts
-- [ ] T045 [P] Implement POST /api/middleman/trades/[id]/complete in src/app/api/middleman/trades/[id]/complete/route.ts
-- [ ] T046 [P] Implement POST /api/upload/image for Cloudflare R2 uploads in src/app/api/upload/image/route.ts
+- [x] T034 [P] Implement GET /api/trades with search and filtering in src/app/api/trades/route.ts
+- [x] T035 [P] Implement POST /api/trades for creating listings in src/app/api/trades/route.ts
+- [x] T036 [P] Implement GET /api/trades/[id] for trade details in src/app/api/trades/[id]/route.ts
+- [x] T037 [P] Implement POST /api/trades/[id]/join for trade participation in src/app/api/trades/[id]/join/route.ts
+- [x] T038 [P] Implement PUT /api/trades/[id] for updates in src/app/api/trades/[id]/route.ts
+- [x] T039 [P] Implement GET /api/trades/[id]/messages for chat history in src/app/api/trades/[id]/messages/route.ts
+- [x] T040 [P] Implement POST /api/trades/[id]/messages for sending messages in src/app/api/trades/[id]/messages/route.ts
+- [x] T041 [P] Implement POST /api/trades/[id]/payment-intent for Stripe integration in src/app/api/trades/[id]/payment-intent/route.ts
+- [x] T042 [P] Implement POST /api/webhooks/stripe for webhook handling in src/app/api/webhooks/stripe/route.ts
+- [x] T043 [P] Implement GET /api/middleman/trades/pending for middleman queue in src/app/api/middleman/trades/pending/route.ts
+- [x] T044 [P] Implement POST /api/middleman/trades/[id]/join in src/app/api/middleman/trades/[id]/join/route.ts
+- [x] T045 [P] Implement POST /api/middleman/trades/[id]/complete in src/app/api/middleman/trades/[id]/complete/route.ts
+- [x] T046 [P] Implement POST /api/upload/image for Cloudflare R2 uploads in src/app/api/upload/image/route.ts
 
 ## Phase 3.6: WebSocket Server & Real-time Features
-- [ ] T047 Setup Socket.io server integration with Next.js in src/lib/socket-server.ts
-- [ ] T048 [P] Implement chat message broadcasting for trade rooms in src/lib/socket-handlers/chat.ts
-- [ ] T049 [P] Implement trade status update events in src/lib/socket-handlers/trades.ts
-- [ ] T050 [P] Implement middleman notification system in src/lib/socket-handlers/middleman.ts
-- [ ] T051 [P] Implement payment status broadcasts in src/lib/socket-handlers/payments.ts
-- [ ] T052 Integrate WebSocket authentication with Better Auth tokens
-- [ ] T053 [P] Add rate limiting and error handling for WebSocket events in src/lib/socket-middleware.ts
+- [x] T047 Setup Socket.io server integration with Next.js in src/lib/socket.ts and server.ts
+- [x] T048 [P] Implement chat message broadcasting for trade rooms in src/lib/socket.ts
+- [x] T049 [P] Implement trade status update events in src/lib/notifications.ts
+- [x] T050 [P] Implement middleman notification system in src/lib/notifications.ts
+- [x] T051 [P] Implement payment status broadcasts in src/lib/notifications.ts
+- [x] T052 Integrate WebSocket authentication with Better Auth tokens in src/lib/socket.ts
+- [x] T053 [P] Add rate limiting and error handling for WebSocket events in src/lib/socket.ts
 
 ## Phase 3.7: UI Components (shadcn/ui)
-- [ ] T054 [P] Create authentication components (LoginButton, UserProfile) in src/components/auth/
-- [ ] T055 [P] Create trade listing components (TradeCard, TradeForm) in src/components/trades/
-- [ ] T056 [P] Create search components (SearchBar, FilterPanel) in src/components/search/
-- [ ] T057 [P] Create chat components (ChatMessage, ChatInput) in src/components/chat/
-- [ ] T058 [P] Create payment components (PaymentForm, PaymentStatus) in src/components/payments/
-- [ ] T059 [P] Create middleman components (MiddlemanDashboard, TradeApproval) in src/components/middleman/
-- [ ] T060 [P] Create file upload component with Cloudflare R2 integration in src/components/ui/image-upload.tsx
+- [x] T054 [P] Create authentication components (LoginButton, UserProfile) in src/components/auth/
+- [x] T055 [P] Create trade listing components (TradeCard, TradeForm) in src/components/trades/
+- [x] T056 [P] Create search components (SearchBar, FilterPanel) in src/components/ui/search-bar.tsx
+- [x] T057 [P] Create chat components (ChatMessage, ChatInput) in src/components/ui/chat-interface.tsx
+- [x] T058 [P] Create payment components (PaymentForm, PaymentStatus) in src/components/ui/payment-dialog.tsx
+- [x] T059 [P] Create middleman components (MiddlemanDashboard, TradeApproval) in src/components/middleman/
+- [x] T060 [P] Create file upload component with Cloudflare R2 integration in src/components/ui/image-upload.tsx
 
 ## Phase 3.8: Pages & Layout
-- [ ] T061 [P] Create root layout with authentication provider in src/app/layout.tsx
-- [ ] T062 [P] Create home page with trade search and listings in src/app/page.tsx
-- [ ] T063 [P] Create trade creation page in src/app/create-trade/page.tsx
-- [ ] T064 [P] Create trade details page with chat in src/app/trades/[id]/page.tsx
-- [ ] T065 [P] Create user profile and trade history page in src/app/profile/page.tsx
-- [ ] T066 [P] Create middleman dashboard page in src/app/middleman/page.tsx
-- [ ] T067 [P] Create middleman login page in src/app/middleman/login/page.tsx
+- [x] T061 [P] Create root layout with authentication provider in src/app/layout.tsx
+- [x] T062 [P] Create home page with trade search and listings in src/app/page.tsx
+- [x] T063 [P] Create trade creation page in src/app/create-trade/page.tsx
+- [x] T064 [P] Create trade details page with chat in src/app/trades/[id]/page.tsx
+- [x] T065 [P] Create user profile and trade history page in src/app/profile/page.tsx
+- [x] T066 [P] Create middleman dashboard page in src/app/middleman/page.tsx
+- [x] T067 [P] Create middleman login page in src/app/middleman/login/page.tsx
 
 ## Phase 3.9: State Management & API Integration
-- [ ] T068 [P] Setup TanStack Query with Next.js App Router in src/lib/query-client.ts
-- [ ] T069 [P] Create trade queries and mutations in src/lib/api/trades.ts
-- [ ] T070 [P] Create chat queries and real-time updates in src/lib/api/chat.ts
-- [ ] T071 [P] Create payment queries and Stripe integration in src/lib/api/payments.ts
-- [ ] T072 [P] Create user authentication queries in src/lib/api/auth.ts
-- [ ] T073 [P] Setup Zustand stores for UI state management in src/lib/stores/
-- [ ] T074 Setup Socket.io client with React hooks in src/lib/socket-client.ts
+- [x] T068 [P] Setup TanStack Query with Next.js App Router in src/app/layout.tsx
+- [x] T069 [P] Create trade queries and mutations in src/hooks/api/useTrades.ts
+- [x] T070 [P] Create chat queries and real-time updates in src/lib/api/chat.ts
+- [x] T071 [P] Create payment queries and Stripe integration in src/lib/api/payments.ts
+- [x] T072 [P] Create user authentication queries in src/lib/api/auth.ts
+- [x] T073 [P] Setup Zustand stores for UI state management in src/lib/stores/
+- [x] T074 Setup Socket.io client with React hooks in src/hooks/useSocket.ts
 
 ## Phase 3.10: Business Logic & Services
-- [ ] T075 [P] Implement trade status validation and transitions in src/lib/services/trade-service.ts
-- [ ] T076 [P] Implement payment deadline enforcement in src/lib/services/payment-service.ts
-- [ ] T077 [P] Implement escrow management with Stripe in src/lib/services/escrow-service.ts
-- [ ] T078 [P] Implement middleman assignment logic in src/lib/services/middleman-service.ts
-- [ ] T079 [P] Implement file upload validation and processing in src/lib/services/upload-service.ts
-- [ ] T080 [P] Create email notification service for critical events in src/lib/services/notification-service.ts
+- [x] T075 [P] Implement trade status validation and transitions in src/lib/services/trade-service.ts
+- [x] T076 [P] Implement payment deadline enforcement in src/lib/services/payment-service.ts
+- [x] T077 [P] Implement escrow management with Stripe in src/lib/services/escrow-service.ts
+- [x] T078 [P] Implement middleman assignment logic in src/lib/services/middleman-service.ts
+- [x] T079 [P] Implement file upload validation and processing in src/lib/services/upload-service.ts
+- [x] T080 [P] Create email notification service for critical events in src/lib/services/notification-service.ts
 
 ## Phase 3.11: E2E Tests & User Scenarios
 - [ ] T081 [P] E2E test: User registration and authentication flow in tests/e2e/auth.spec.ts

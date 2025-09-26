@@ -1,6 +1,7 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
+/*
 // Define protected routes that require authentication
 const protectedRoutes = ["/dashboard", "/trades", "/profile", "/settings"];
 
@@ -11,10 +12,13 @@ const publicRoutes = [
   "/auth/forgot-password",
   "/support",
 ];
+*/
 
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+  //const { pathname } = request.nextUrl;
+  return NextResponse.next();
 
+  /*
   // Check if user is authenticated (you'll need to implement this based on your auth solution)
   // For now, we'll use a simple cookie check - replace with your actual auth logic
   const isAuthenticated =
@@ -49,6 +53,7 @@ export function middleware(request: NextRequest) {
   }
 
   return NextResponse.next();
+  */
 }
 
 // Configure which paths the middleware should run on

@@ -1,42 +1,126 @@
 "use client";
 
-import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { emailOtp, signIn } from "@/lib/auth-client";
 
 export default function SignInPage() {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const step = searchParams.get("step") || "email";
+
+  const [email, setEmail] = useState(searchParams.get("email") || "");
+  const [otp, setOtp] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setError("");
 
-    // Simulate API call
-    const LoadingDelay = 1500;
-    await new Promise((resolve) => setTimeout(resolve, LoadingDelay));
-    setIsLoading(false);
+    try {
+      await emailOtp.sendVerificationOtp({
+        email,
+        type: "sign-in",
+      });
+
+      // Navigate to OTP step with email in URL
+      router.push(`/auth/sign-in?step=otp&email=${encodeURIComponent(email)}`);
+    } catch (err) {
+      setError("Failed to send OTP. Please try again.");
+      console.error("OTP send error:", err);
+    } finally {
+      setIsLoading(false);
+    }
   };
+
+  const handleOtpSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError("");
+
+    try {
+      await signIn.emailOtp({
+        email,
+        otp,
+      });
+
+      // Redirect will be handled by better-auth callbacks
+      router.push("/app");
+    } catch (err) {
+      setError("Invalid OTP. Please try again.");
+      console.error("OTP verification error:", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleBackToEmail = () => {
+    router.push("/auth/sign-in?step=email");
+    setOtp("");
+    setError("");
+  };
+
+  if (step === "otp") {
+    return (
+      <div className="flex min-h-screen items-center justify-center px-4">
+        <Card className="w-full max-w-md">
+          <CardHeader className="space-y-1">
+            <CardTitle className="text-center text-2xl">Enter OTP</CardTitle>
+            <CardDescription className="text-center text-muted-foreground">
+              We sent a code to {email}
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form className="space-y-4" onSubmit={handleOtpSubmit}>
+              <div className="space-y-2">
+                <Label htmlFor="otp">One-Time Password</Label>
+                <Input
+                  disabled={isLoading}
+                  id="otp"
+                  onChange={(e) => setOtp(e.target.value)}
+                  placeholder="Enter 6-digit code"
+                  required
+                  type="text"
+                  value={otp}
+                  maxLength={6}
+                  pattern="[0-9]{6}"
+                />
+              </div>
+              {error && (
+                <div className="text-center text-destructive text-sm">
+                  {error}
+                </div>
+              )}
+              <Button className="w-full" disabled={isLoading} type="submit">
+                {isLoading ? "Verifying..." : "Verify & Sign In"}
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full"
+                onClick={handleBackToEmail}
+                disabled={isLoading}
+              >
+                ← Back to Email
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div className="flex min-h-screen items-center justify-center px-4">
@@ -44,34 +128,21 @@ export default function SignInPage() {
         <CardHeader className="space-y-1">
           <CardTitle className="text-center text-2xl">Welcome Back</CardTitle>
           <CardDescription className="text-center text-muted-foreground">
-            Sign in to your account
+            Enter your email to receive a sign-in code
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form className="space-y-4" onSubmit={handleEmailSubmit}>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input
                 disabled={isLoading}
                 id="email"
-                name="email"
-                onChange={handleInputChange}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@email.com"
                 required
                 type="email"
-                value={formData.email}
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
-              <Input
-                disabled={isLoading}
-                id="password"
-                name="password"
-                onChange={handleInputChange}
-                required
-                type="password"
-                value={formData.password}
+                value={email}
               />
             </div>
             {error && (
@@ -80,30 +151,14 @@ export default function SignInPage() {
               </div>
             )}
             <Button
-              className="btn-primary w-full"
-              disabled={isLoading}
+              className="w-full"
+              disabled={isLoading || !email}
               type="submit"
             >
-              {isLoading ? "Signing In..." : "Sign In"}
+              {isLoading ? "Sending Code..." : "Send Sign-In Code"}
             </Button>
-            <div className="text-center">
-              <Link
-                className="text-muted-foreground text-sm hover:text-primary hover:underline"
-                href="/auth/forgot-password"
-              >
-                Forgot password?
-              </Link>
-            </div>
           </form>
         </CardContent>
-        <CardFooter className="justify-center">
-          <p className="text-muted-foreground text-sm">
-            Don&apos;t have an account?{" "}
-            <Link className="text-primary hover:underline" href="/auth/sign-up">
-              Sign Up
-            </Link>
-          </p>
-        </CardFooter>
       </Card>
     </div>
   );

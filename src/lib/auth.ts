@@ -1,5 +1,6 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
+import { emailOTP } from "better-auth/plugins";
 import { prisma } from "./prisma";
 
 export const auth = betterAuth({
@@ -14,16 +15,20 @@ export const auth = betterAuth({
         defaultValue: "USER",
         input: false, // don't allow user to set role
       },
-      robloxUsername: {
-        type: "string",
-        required: false,
-        input: true, // allow user to set during signup
-      },
     },
   },
-  emailAndPassword: {
-    enabled: true,
-  },
+  plugins: [
+    emailOTP({
+      async sendVerificationOTP({ email, otp, type }) {
+        // TODO: Implement email sending logic here
+        // For now, log to console in development
+        console.log(`OTP for ${email} (${type}): ${otp}`);
+
+        // In production, you would send the email here
+        // Example: await sendEmail(email, `Your OTP: ${otp}`, type);
+      },
+    }),
+  ],
   session: {
     expiresIn: 604_800, // 7 days in seconds
     updateAge: 86_400, // 1 day in seconds
@@ -36,16 +41,6 @@ export const auth = betterAuth({
     afterSignIn: (user: { role: string }, _request: unknown) => {
       const role = user.role as string;
 
-      if (role === "USER") {
-        return {
-          redirect: "/app",
-        };
-      }
-      if (role === "MIDDLEMAN") {
-        return {
-          redirect: "/middleman",
-        };
-      }
       if (role === "ADMIN") {
         return {
           redirect: "/admin",

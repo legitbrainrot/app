@@ -1,21 +1,12 @@
 "use client";
 
-import { HelpCircle, LogIn, Plus, Search, Shield } from "lucide-react";
+import { HelpCircle, Search, Shield } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 export default function Navigation() {
   const pathname = usePathname();
-
-  const shouldShow = () => {
-    const authPaths = ["/auth/sign-in"];
-    return !authPaths.some((path) => pathname?.startsWith(path));
-  };
-
-  if (!shouldShow()) {
-    return null;
-  }
 
   const isActive = (path: string) => pathname?.startsWith(path) ?? false;
 
@@ -36,37 +27,23 @@ export default function Navigation() {
           </div>
 
           {/* Security Badge */}
-          <div className="hidden md:flex items-center gap-1 bg-green-100 px-3 py-1 rounded-full">
-            <Shield className="h-4 w-4 text-green-600" />
-            <span className="text-sm font-medium text-green-800">
+          <div className="hidden md:flex items-center gap-1 bg-green-500 px-3 py-1 rounded-full">
+            <Shield className="h-4 w-4 text-white" />
+            <span className="text-sm font-medium text-white">
               Middleman de confiance
             </span>
           </div>
 
           {/* Main Navigation */}
           <div className="hidden items-center gap-3 lg:flex">
-            <Link href="/trade">
+            <Link href="/servers">
               <Button
                 className="gap-2 text-gray-300 hover:bg-gray-800"
                 size="sm"
-                variant={
-                  isActive("/trade") && !isActive("/trade/publish")
-                    ? "default"
-                    : "ghost"
-                }
+                variant={isActive("/servers") ? "default" : "ghost"}
               >
                 <Search className="h-4 w-4" />
-                Trades brainrot
-              </Button>
-            </Link>
-            <Link href="/trade/publish">
-              <Button
-                className="gap-2 bg-green-600 text-white hover:bg-green-700"
-                size="sm"
-                variant={isActive("/trade/publish") ? "default" : "default"}
-              >
-                <Plus className="h-4 w-4" />
-                Publier brainrot
+                Serveurs disponibles
               </Button>
             </Link>
           </div>
@@ -75,21 +52,12 @@ export default function Navigation() {
           <div className="flex items-center gap-2">
             <Link href="/support">
               <Button
-                className="gap-2 text-gray-600 hover:bg-gray-100"
+                className="gap-2 text-gray-300 hover:bg-gray-800"
                 size="sm"
                 variant="ghost"
               >
                 <HelpCircle className="h-4 w-4" />
                 <span className="hidden sm:inline">Aide</span>
-              </Button>
-            </Link>
-            <Link href="/auth/sign-in">
-              <Button
-                className="gap-2 bg-green-600 hover:bg-green-700 text-white font-medium px-4"
-                size="sm"
-              >
-                <LogIn className="h-4 w-4" />
-                <span>Se connecter</span>
               </Button>
             </Link>
           </div>

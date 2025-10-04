@@ -1,36 +1,7 @@
-import { ArrowRight, MessageCircle, Plus, Search, Shield } from "lucide-react";
-import Image from "next/image";
+import { ArrowRight, Plus, Search, Shield } from "lucide-react";
 import Link from "next/link";
 import { FAQ } from "@/components/faq";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-
-const popularTrades = [
-  {
-    id: "1",
-    name: "Skibidi Toilet",
-    creator: "@toiletmaster",
-    image:
-      "https://images.unsplash.com/photo-1606041008023-472dfb5e530f?w=300&h=200&fit=crop",
-    price: "2,50€",
-  },
-  {
-    id: "2",
-    name: "Ohio Sigma",
-    creator: "@sigmachad",
-    image:
-      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop",
-    price: "2,50€",
-  },
-  {
-    id: "3",
-    name: "Gyatt Rizz",
-    creator: "@rizzgod",
-    image:
-      "https://images.unsplash.com/photo-1611605698335-8b1569810432?w=300&h=200&fit=crop",
-    price: "2,50€",
-  },
-];
 
 export default function HomePage() {
   return (
@@ -61,24 +32,24 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
               <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Plus className="h-8 w-8 text-white" />
+                <Search className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">
-                1. Publie ton brainrot
+                1. Choisis un serveur
               </h3>
               <p className="text-gray-400">
-                Partage ton contenu brainrot sur notre plateforme
+                Parcours les serveurs privés disponibles avec middleman
               </p>
             </div>
             <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
               <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MessageCircle className="h-8 w-8 text-white" />
+                <Plus className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">
-                2. Chat avec intéressés
+                2. Remplis le formulaire
               </h3>
               <p className="text-gray-400">
-                Discute avec les utilisateurs qui veulent ton brainrot
+                Entre ton pseudo Roblox et celui de l'autre trader
               </p>
             </div>
             <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
@@ -89,7 +60,7 @@ export default function HomePage() {
                 3. Paiement sécurisé
               </h3>
               <p className="text-gray-400">
-                Chaque participant paie 2,50€ ensemble de façon sécurisée
+                Paie via Stripe de façon 100% sécurisée
               </p>
             </div>
             <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
@@ -97,10 +68,10 @@ export default function HomePage() {
                 <ArrowRight className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">
-                4. Rejoins le middleman
+                4. Rejoins le serveur
               </h3>
               <p className="text-gray-400">
-                Reçois le lien pour rejoindre le middleman et faire l'échange
+                Reçois le lien du serveur privé et trade avec le middleman
               </p>
             </div>
           </div>
@@ -111,63 +82,11 @@ export default function HomePage() {
               size="lg"
               className="px-8 py-4 text-lg bg-green-600 hover:bg-green-700"
             >
-              <Link href="/trade/publish">
-                <Plus className="h-6 w-6 mr-2" />
-                Publier mon brainrot
-              </Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="px-8 py-4 text-lg border-2 border-gray-600 text-white hover:bg-gray-800"
-            >
-              <Link href="/trade">
+              <Link href="/servers">
                 <Search className="h-6 w-6 mr-2" />
-                Découvrir les brainrot
+                Voir les serveurs
               </Link>
             </Button>
-          </div>
-        </div>
-
-        {/* Popular Trades */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-center mb-8 text-white">
-            🔥 Trades brainrot populaires cette semaine
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {popularTrades.map((trade) => (
-              <Card
-                key={trade.id}
-                className="bg-gray-900 border border-gray-800 hover:border-green-500 transition-all duration-300"
-              >
-                <CardContent className="p-0">
-                  <Link href={`/trade/${trade.id}`}>
-                    <Image
-                      src={trade.image}
-                      alt={trade.name}
-                      width={300}
-                      height={200}
-                      className="w-full h-48 object-cover rounded-t-lg"
-                    />
-                    <div className="p-4">
-                      <h3 className="text-xl font-bold text-white mb-1">
-                        {trade.name}
-                      </h3>
-                      <p className="text-sm text-gray-400 mb-2">
-                        {trade.creator}
-                      </p>
-                      <div className="bg-gray-800 border border-gray-700 rounded-lg p-2">
-                        <p className="text-sm font-semibold text-green-400">
-                          💰 Prix du trade : {trade.price}
-                        </p>
-                      </div>
-                    </div>
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
 

@@ -1,26 +1,35 @@
 "use client";
 
-import { useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Shield } from "lucide-react";
+import { useParams } from "next/navigation";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 
 const tradeRequestSchema = z.object({
-  buyerRobloxUsername: z.string().min(3, "Le pseudo doit contenir au moins 3 caractères"),
-  sellerRobloxUsername: z.string().min(3, "Le pseudo doit contenir au moins 3 caractères"),
+  buyerRobloxUsername: z
+    .string()
+    .min(3, "Le pseudo doit contenir au moins 3 caractères"),
+  sellerRobloxUsername: z
+    .string()
+    .min(3, "Le pseudo doit contenir au moins 3 caractères"),
 });
 
 type TradeRequestForm = z.infer<typeof tradeRequestSchema>;
 
 export default function RequestTradePage() {
   const params = useParams();
-  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -147,7 +156,8 @@ export default function RequestTradePage() {
               </Button>
 
               <p className="text-xs text-center text-gray-500">
-                En continuant, tu acceptes d'être redirigé vers Stripe pour effectuer le paiement sécurisé.
+                En continuant, tu acceptes d'être redirigé vers Stripe pour
+                effectuer le paiement sécurisé.
               </p>
             </form>
           </CardContent>

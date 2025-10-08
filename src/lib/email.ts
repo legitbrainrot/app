@@ -21,7 +21,7 @@ export async function sendMiddlemanNotification({
 }) {
   try {
     const { data, error } = await resend.emails.send({
-      from: "LegitBrainrot <noreply@legitbrainrot.com>",
+      from: "billel93hussain@gmail.com",
       to: middlemanEmail,
       subject: `New Trade Request - ${serverName}`,
       html: `

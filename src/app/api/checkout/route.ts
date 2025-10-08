@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { getServerById } from "@/lib/mock-data";
 import { stripe } from "@/lib/stripe";
-import { getServerById, createTradeRequest, updateTradeRequest } from "@/lib/mock-data";
 
 const checkoutSchema = z.object({
   serverId: z.string(),
@@ -12,7 +12,8 @@ const checkoutSchema = z.object({
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { serverId, buyerRobloxUsername, sellerRobloxUsername } = checkoutSchema.parse(body);
+    const { serverId, buyerRobloxUsername, sellerRobloxUsername } =
+      checkoutSchema.parse(body);
 
     // Get the server details from mock data
     const server = getServerById(serverId);
@@ -20,23 +21,16 @@ export async function POST(req: NextRequest) {
     if (!server) {
       return NextResponse.json(
         { error: "Serveur introuvable" },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
     if (!server.isAvailable) {
       return NextResponse.json(
         { error: "Ce serveur n'est plus disponible" },
-        { status: 400 }
+        { status: 400 },
       );
     }
-
-    // Create a trade request in mock storage
-    const tradeRequest = createTradeRequest(
-      serverId,
-      buyerRobloxUsername,
-      sellerRobloxUsername
-    );
 
     // Create a Stripe Checkout session
     const session = await stripe.checkout.sessions.create({
@@ -55,31 +49,26 @@ export async function POST(req: NextRequest) {
         },
       ],
       mode: "payment",
-      success_url: `${process.env.NEXT_PUBLIC_APP_URL}/success?session_id={CHECKOUT_SESSION_ID}&trade_id=${tradeRequest.id}`,
+      success_url: `${process.env.NEXT_PUBLIC_APP_URL}/success?server_id=${serverId}&buyer=${encodeURIComponent(buyerRobloxUsername)}&seller=${encodeURIComponent(sellerRobloxUsername)}`,
       cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/servers/${serverId}/request`,
       metadata: {
-        tradeRequestId: tradeRequest.id,
         serverId: serverId,
+        buyerRobloxUsername: buyerRobloxUsername,
+        sellerRobloxUsername: sellerRobloxUsername,
       },
     });
-
-    // Update trade request with Stripe payment ID
-    updateTradeRequest(tradeRequest.id, { stripePaymentId: session.id });
 
     return NextResponse.json({ checkoutUrl: session.url });
   } catch (error) {
     console.error("Checkout error:", error);
 
     if (error instanceof z.ZodError) {
-      return NextResponse.json(
-        { error: "Données invalides" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Données invalides" }, { status: 400 });
     }
 
     return NextResponse.json(
       { error: "Une erreur est survenue lors de la création du paiement" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

@@ -1,35 +1,36 @@
-import { redirect } from "next/navigation";
 import { CheckCircle, ExternalLink } from "lucide-react";
+import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { getTradeRequestById, getServerById } from "@/lib/mock-data";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { getServerById } from "@/lib/mock-data";
 
 export default async function SuccessPage({
   searchParams,
 }: {
-  searchParams: Promise<{ trade_id?: string }>;
+  searchParams: Promise<{
+    server_id?: string;
+    buyer?: string;
+    seller?: string;
+  }>;
 }) {
   const params = await searchParams;
-  const tradeId = params.trade_id;
+  const { server_id, buyer, seller } = params;
 
-  if (!tradeId) {
+  if (!server_id || !buyer || !seller) {
     redirect("/servers");
   }
 
-  const tradeRequest = getTradeRequestById(tradeId);
-
-  if (!tradeRequest) {
-    redirect("/servers");
-  }
-
-  const server = getServerById(tradeRequest.privateServerId);
+  const server = getServerById(server_id);
 
   if (!server) {
     redirect("/servers");
   }
-
-  // For POC, we'll show the success page immediately after redirect
-  // In production with real webhooks, you'd check tradeRequest.isPaid
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -60,23 +61,17 @@ export default async function SuccessPage({
           <CardContent className="space-y-4">
             <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
               <p className="text-sm text-gray-400 mb-2">Serveur</p>
-              <p className="text-lg font-semibold text-white">
-                {server.name}
-              </p>
+              <p className="text-lg font-semibold text-white">{server.name}</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
                 <p className="text-sm text-gray-400 mb-2">Acheteur</p>
-                <p className="text-lg font-semibold text-white">
-                  {tradeRequest.buyerRobloxUsername}
-                </p>
+                <p className="text-lg font-semibold text-white">{buyer}</p>
               </div>
               <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
                 <p className="text-sm text-gray-400 mb-2">Vendeur</p>
-                <p className="text-lg font-semibold text-white">
-                  {tradeRequest.sellerRobloxUsername}
-                </p>
+                <p className="text-lg font-semibold text-white">{seller}</p>
               </div>
             </div>
 
@@ -111,14 +106,8 @@ export default async function SuccessPage({
               <p className="text-sm text-gray-300">
                 Le middleman a été notifié et vous attend sur le serveur privé
                 pour faciliter l'échange entre{" "}
-                <span className="font-semibold">
-                  {tradeRequest.buyerRobloxUsername}
-                </span>{" "}
-                et{" "}
-                <span className="font-semibold">
-                  {tradeRequest.sellerRobloxUsername}
-                </span>
-                .
+                <span className="font-semibold">{buyer}</span> et{" "}
+                <span className="font-semibold">{seller}</span>.
               </p>
             </div>
           </CardContent>

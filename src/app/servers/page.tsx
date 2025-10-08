@@ -1,7 +1,13 @@
-import Link from "next/link";
 import { Shield, Users } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { getAvailableServers } from "@/lib/mock-data";
 
 export default function ServersPage() {
@@ -47,7 +53,9 @@ export default function ServersPage() {
                 <CardContent>
                   <div className="space-y-4">
                     <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
-                      <p className="text-sm text-gray-400 mb-1">Prix du service</p>
+                      <p className="text-sm text-gray-400 mb-1">
+                        Prix du service
+                      </p>
                       <p className="text-2xl font-bold text-green-400">
                         {server.price.toFixed(2)}€
                       </p>

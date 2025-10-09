@@ -84,7 +84,7 @@ export default function ServersPage() {
                           {server.price.toFixed(2)}€
                         </p>
                         <p className="text-xs text-gray-500 line-through">
-                          2,50€
+                          1,99€
                         </p>
                       </div>
                     </div>

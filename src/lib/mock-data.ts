@@ -16,7 +16,8 @@ export const mockPrivateServers: PrivateServer[] = [
     description:
       "Serveur premium avec middleman certifié pour tous vos trades brainrot. Sécurisé et rapide !",
     price: 0.99,
-    serverLink: "https://www.roblox.com/games/123456789/private-server-link-1",
+    serverLink:
+      "https://www.roblox.com/share?code=c89c8f6afff3e349841e1006d40840b2&type=Server",
     middlemanEmail: "billel93hussain@gmail.com",
     isAvailable: true,
   },
@@ -26,7 +27,8 @@ export const mockPrivateServers: PrivateServer[] = [
     description:
       "Le meilleur serveur pour trader en toute sécurité. Middleman expérimenté disponible 24/7.",
     price: 0.99,
-    serverLink: "https://www.roblox.com/games/987654321/private-server-link-2",
+    serverLink:
+      "https://www.roblox.com/share?code=b8f37f02cea9a74896ef84a74abbf337&type=Server",
     middlemanEmail: "billel93hussain@gmail.com",
     isAvailable: true,
   },
@@ -36,7 +38,8 @@ export const mockPrivateServers: PrivateServer[] = [
     description:
       "Serveur VIP pour les trades de qualité. Protection maximale garantie.",
     price: 0.99,
-    serverLink: "https://www.roblox.com/games/456789123/private-server-link-3",
+    serverLink:
+      "https://www.roblox.com/share?code=bc1f5a953545f64aa702504f584a1f98&type=Server",
     middlemanEmail: "billel93hussain@gmail.com",
     isAvailable: true,
   },

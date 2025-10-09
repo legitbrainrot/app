@@ -74,7 +74,7 @@ export default async function SuccessPage({
                 <p className="text-lg font-semibold text-white">{seller}</p>
               </div>
             </div>
-
+            {/*}
             <div className="bg-green-900/20 border border-green-500 rounded-lg p-4">
               <p className="text-sm text-gray-400 mb-2">
                 Lien du Serveur Privé
@@ -98,7 +98,7 @@ export default async function SuccessPage({
                 </Button>
               </div>
             </div>
-
+*/}
             <div className="bg-blue-900/20 border border-blue-500 rounded-lg p-4">
               <p className="text-sm font-semibold text-blue-400 mb-2">
                 📧 Email envoyé au middleman
@@ -117,14 +117,15 @@ export default async function SuccessPage({
           <Button
             asChild
             size="lg"
-            className="w-full bg-green-600 hover:bg-green-700"
+            className="text-xl w-full bg-green-600 hover:bg-green-700"
           >
             <a
               href={server.serverLink}
               target="_blank"
               rel="noopener noreferrer"
+              className="text-2xl"
             >
-              <ExternalLink className="h-5 w-5 mr-2" />
+              <ExternalLink className="h-8 w-8 mr-2" />
               Rejoindre le serveur maintenant
             </a>
           </Button>

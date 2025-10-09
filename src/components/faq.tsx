@@ -11,10 +11,10 @@ const faqItems = [
   {
     question: "Comment fonctionne le middleman de confiance ?",
     answer:
-      "Notre équipe sécurise chaque trade brainrot. Chaque participant paie 2,50€ à notre middleman avant l'échange pour garantir zéro arnaque.",
+      "Notre équipe sécurise chaque trade brainrot. Chaque participant paie 0,99€ à notre middleman avant l'échange pour garantir zéro arnaque.",
   },
   {
-    question: "Pourquoi payer 2,50€ pour trader ?",
+    question: "Pourquoi payer 0,99€ pour trader ?",
     answer:
       "Ce paiement garantit que les deux parties sont sérieuses et protège contre les arnaques. Le middleman vérifie que le trade se passe bien avant de valider.",
   },
@@ -57,8 +57,10 @@ export function FAQ({
               className="border-border border-b pb-6 last:border-b-0 last:pb-0"
               key={item.question}
             >
-              <h3 className="mb-2 font-semibold">{item.question}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <h3 className="mb-2 font-semibold text-base md:text-lg">
+                {item.question}
+              </h3>
+              <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
                 {item.answer}
               </p>
             </div>

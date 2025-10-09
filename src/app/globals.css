@@ -1,26 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #000000;
-  --color-foreground: #ffffff;
-  --color-card: #111111;
-  --color-card-foreground: #ffffff;
-  --color-popover: #111111;
-  --color-popover-foreground: #ffffff;
-  --color-primary: #00ff88;
-  --color-primary-foreground: #000000;
-  --color-secondary: #1a1a1a;
-  --color-secondary-foreground: #ffffff;
-  --color-muted: #1a1a1a;
-  --color-muted-foreground: #888888;
-  --color-accent: #00ff88;
+  --color-background: #121212;
+  --color-foreground: #f5f5f5;
+  --color-card: #1e1e1e;
+  --color-card-foreground: #f5f5f5;
+  --color-popover: #1e1e1e;
+  --color-popover-foreground: #f5f5f5;
+  --color-primary: #22c55e;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #2a2a2a;
+  --color-secondary-foreground: #f5f5f5;
+  --color-muted: #2a2a2a;
+  --color-muted-foreground: #a3a3a3;
+  --color-accent: #4ade80;
   --color-accent-foreground: #000000;
-  --color-destructive: #ff4444;
+  --color-destructive: #ef4444;
   --color-destructive-foreground: #ffffff;
-  --color-border: #333333;
-  --color-input: #1a1a1a;
-  --color-ring: #00ff88;
-  --radius: 0.5rem;
+  --color-border: #3a3a3a;
+  --color-input: #2a2a2a;
+  --color-ring: #4ade80;
+  --radius: 0.75rem;
   --font-sans: ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -68,5 +68,69 @@
 
   .btn-destructive {
     @apply bg-destructive text-destructive-foreground hover:bg-destructive/90;
+  }
+
+  /* Mobile-first typography */
+  h1 {
+    font-size: clamp(2rem, 8vw, 4.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  /* Animations */
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes pulse-subtle {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-in {
+    animation: slide-in 0.5s ease-out;
+  }
+
+  .animate-pulse-subtle {
+    animation: pulse-subtle 2s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out;
+  }
+
+  /* Improved focus states for accessibility */
+  *:focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
   }
 }

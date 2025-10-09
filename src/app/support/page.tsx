@@ -49,7 +49,7 @@ export default function SupportPage() {
               <Button
                 className="btn-primary flex-1"
                 onClick={() =>
-                  window.open("https://discord.gg/yourserver", "_blank")
+                  window.open("https://discord.gg/ATeHhkte", "_blank")
                 }
               >
                 <MessageSquare className="mr-2 h-4 w-4" />
@@ -59,7 +59,7 @@ export default function SupportPage() {
               <Button
                 className="flex-1"
                 onClick={() =>
-                  window.open("https://discord.gg/yourserver", "_blank")
+                  window.open("https://discord.gg/ATeHhkte", "_blank")
                 }
                 variant="outline"
               >

@@ -15,7 +15,7 @@ export const mockPrivateServers: PrivateServer[] = [
     name: "🔥 Skibidi Trade Zone",
     description:
       "Serveur premium avec middleman certifié pour tous vos trades brainrot. Sécurisé et rapide !",
-    price: 2.5,
+    price: 0.99,
     serverLink: "https://www.roblox.com/games/123456789/private-server-link-1",
     middlemanEmail: "billel93hussain@gmail.com",
     isAvailable: true,
@@ -25,7 +25,7 @@ export const mockPrivateServers: PrivateServer[] = [
     name: "⚡ Ohio Sigma Palace",
     description:
       "Le meilleur serveur pour trader en toute sécurité. Middleman expérimenté disponible 24/7.",
-    price: 2.5,
+    price: 0.99,
     serverLink: "https://www.roblox.com/games/987654321/private-server-link-2",
     middlemanEmail: "billel93hussain@gmail.com",
     isAvailable: true,
@@ -35,7 +35,7 @@ export const mockPrivateServers: PrivateServer[] = [
     name: "💎 Gyatt Rizz VIP",
     description:
       "Serveur VIP pour les trades de qualité. Protection maximale garantie.",
-    price: 2.5,
+    price: 0.99,
     serverLink: "https://www.roblox.com/games/456789123/private-server-link-3",
     middlemanEmail: "billel93hussain@gmail.com",
     isAvailable: true,

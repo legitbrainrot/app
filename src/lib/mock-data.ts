@@ -12,7 +12,7 @@ export interface PrivateServer {
 export const mockPrivateServers: PrivateServer[] = [
   {
     id: "server-1",
-    name: "🔥 Skibidi Trade Zone",
+    name: "Serveur Trade 1",
     description:
       "Serveur premium avec middleman certifié pour tous vos trades brainrot. Sécurisé et rapide !",
     price: 0.99,
@@ -23,7 +23,7 @@ export const mockPrivateServers: PrivateServer[] = [
   },
   {
     id: "server-2",
-    name: "⚡ Ohio Sigma Palace",
+    name: "Serveur Trade 2",
     description:
       "Le meilleur serveur pour trader en toute sécurité. Middleman expérimenté disponible 24/7.",
     price: 0.99,
@@ -34,7 +34,7 @@ export const mockPrivateServers: PrivateServer[] = [
   },
   {
     id: "server-3",
-    name: "💎 Gyatt Rizz VIP",
+    name: "Serveur Trade 3",
     description:
       "Serveur VIP pour les trades de qualité. Protection maximale garantie.",
     price: 0.99,

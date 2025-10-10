@@ -30,7 +30,7 @@ export default function ServersPage() {
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 px-4">
             Choisis ton serveur et commence à trader en toute sécurité pour
-            seulement 0,99€
+            seulement 1,99€
           </p>
 
           {/* Trust Badges */}
@@ -84,7 +84,7 @@ export default function ServersPage() {
                           {server.price.toFixed(2)}€
                         </p>
                         <p className="text-xs text-gray-500 line-through">
-                          1,99€
+                          4,99€
                         </p>
                       </div>
                     </div>
@@ -95,7 +95,7 @@ export default function ServersPage() {
                       className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-sm sm:text-base py-5 sm:py-6 shadow-lg transition-all duration-300 hover:scale-105"
                     >
                       <Link href={`/servers/${server.id}/request`}>
-                        Sécuriser mon trade (0,99€)
+                        Sécuriser mon trade (1,99€)
                         <ArrowRight className="h-4 w-4 ml-2" />
                       </Link>
                     </Button>

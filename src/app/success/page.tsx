@@ -1,4 +1,4 @@
-import { CheckCircle, ExternalLink } from "lucide-react";
+import { Camera, CheckCircle, ExternalLink } from "lucide-react";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
@@ -109,6 +109,37 @@ export default async function SuccessPage({
                 <span className="font-semibold">{buyer}</span> et{" "}
                 <span className="font-semibold">{seller}</span>.
               </p>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Important Screenshot Notice */}
+        <Card className="bg-gradient-to-br from-orange-900/40 to-yellow-900/40 border-2 border-orange-500 mb-6 animate-pulse-subtle">
+          <CardContent className="pt-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div className="flex-shrink-0">
+                <div className="bg-orange-500 rounded-full p-3">
+                  <Camera className="h-8 w-8 text-white" />
+                </div>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg sm:text-xl font-bold text-orange-400 mb-2">
+                  📸 IMPORTANT : Prends une capture d'écran !
+                </h3>
+                <p className="text-sm sm:text-base text-gray-200 mb-3">
+                  <span className="font-semibold text-white">
+                    Avant de rejoindre le serveur, fais une capture d'écran de
+                    cette page
+                  </span>{" "}
+                  et envoie-la à l'autre trader pour lui prouver que le paiement
+                  est réussi et que le trade est sécurisé.
+                </p>
+                <p className="text-xs sm:text-sm text-orange-300">
+                  ✓ Cela rassure l'autre trader et accélère le trade
+                  <br />✓ C'est la preuve que tu as bien payé le service
+                  middleman
+                </p>
+              </div>
             </div>
           </CardContent>
         </Card>

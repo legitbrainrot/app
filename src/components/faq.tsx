@@ -11,12 +11,12 @@ const faqItems = [
   {
     question: "Comment fonctionne le middleman de confiance ?",
     answer:
-      "Notre équipe sécurise chaque trade brainrot. Chaque participant paie 0,99€ à notre middleman avant l'échange pour garantir zéro arnaque.",
+      "Notre équipe sécurise chaque trade brainrot. Un seul participant paie 1,99€ (au lieu de 4,99€) à notre middleman avant l'échange pour garantir zéro arnaque.",
   },
   {
-    question: "Pourquoi payer 0,99€ pour trader ?",
+    question: "Pourquoi payer 1,99€ pour trader ?",
     answer:
-      "Ce paiement garantit que les deux parties sont sérieuses et protège contre les arnaques. Le middleman vérifie que le trade se passe bien avant de valider.",
+      "Ce paiement garantit que le trade est sérieux et protège contre les arnaques. Le middleman vérifie que le trade se passe bien avant de valider. Un seul trader paie, pas les deux.",
   },
   {
     question: "Que se passe-t-il si l'autre personne ne livre pas ?",

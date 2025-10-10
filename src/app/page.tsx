@@ -21,9 +21,9 @@ export default function HomePage() {
             <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-bold flex items-center gap-2 shadow-lg animate-pulse-subtle">
               <Clock className="h-4 w-4" />
               <span className="hidden sm:inline">
-                Offre de lancement: -50% (1,99€ → 0,99€)
+                Offre de lancement: -60% (4,99€ → 1,99€)
               </span>
-              <span className="sm:hidden">Promo: -50% → 0,99€</span>
+              <span className="sm:hidden">Promo: -60% → 1,99€</span>
             </div>
           </div>
           {/* Trust Badge */}
@@ -42,7 +42,7 @@ export default function HomePage() {
           </p>
           <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-8 max-w-2xl mx-auto px-4">
             Fini les arnaques ! Notre équipe protège chaque échange brainrot
-            (seulement 0,99€) grâce à notre service middleman vérifié.
+            (seulement 1,99€) grâce à notre service middleman vérifié.
           </p>
           {/* Primary CTA - Above the fold */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 px-4">
@@ -108,8 +108,8 @@ export default function HomePage() {
                   3. Payez pour sécuriser le trade
                 </h4>
                 <p className="text-sm sm:text-base text-gray-400">
-                  Vous devez tous les deux payer 0,99 € pour activer le
-                  middleman et bloquer le trade.
+                  Un seul d'entre vous paie 1,99 € pour activer le middleman et
+                  sécuriser le trade.
                 </p>
               </div>
               <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 hover:border-green-500 rounded-xl p-6 transition-all duration-300 hover:scale-105">
@@ -120,8 +120,8 @@ export default function HomePage() {
                   4. Rejoignez le serveur
                 </h4>
                 <p className="text-sm sm:text-base text-gray-400">
-                  Rejoignez le lien du serveur privé. Quand vous avez tous les
-                  deux validé les étapes, le trade démarre avec le middleman ⚔️
+                  Rejoignez le lien du serveur privé reçu. Le middleman vous
+                  attend pour sécuriser votre trade ⚔️
                 </p>
               </div>
             </div>
@@ -251,7 +251,7 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-xl p-6 shadow-lg">
               <p className="text-sm sm:text-base text-gray-300 mb-4 italic">
-                "J'ai trade mon brainrot via le middleman pour 0,99€ ! Aucune
+                "J'ai trade mon brainrot via le middleman pour 1,99€ ! Aucune
                 arnaque, super sécurisé !"
               </p>
               <p className="text-green-400 font-bold text-sm">

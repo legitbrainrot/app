@@ -97,7 +97,7 @@ export default function RequestTradePage() {
             Demande de Trade Sécurisé
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-300 px-4">
-            Dernière étape avant de sécuriser ton trade pour 0,99€
+            Dernière étape avant de sécuriser ton trade pour 1,99€
           </p>
         </div>
 
@@ -128,9 +128,9 @@ export default function RequestTradePage() {
                   </div>
                   <p className="text-gray-300">
                     <span className="font-semibold text-white">
-                      Paie via Stripe
+                      Un seul d'entre vous paie
                     </span>{" "}
-                    de façon 100% sécurisée
+                    1,99€ via Stripe de façon 100% sécurisée
                   </p>
                 </div>
                 <div className="flex gap-3">
@@ -139,23 +139,14 @@ export default function RequestTradePage() {
                   </div>
                   <p className="text-gray-300">
                     <span className="font-semibold text-white">
-                      Rejoins le lien
+                      Rejoins le serveur
                     </span>{" "}
-                    du serveur privé
+                    via le lien reçu après paiement
                   </p>
                 </div>
                 <div className="flex gap-3">
                   <div className="flex-shrink-0 w-6 h-6 bg-green-600 rounded-full flex items-center justify-center font-bold text-xs">
                     4
-                  </div>
-                  <p className="text-gray-300">
-                    <span className="font-semibold text-white">Attends</span>{" "}
-                    que l'autre trader ai effectue les meme demarches
-                  </p>
-                </div>
-                <div className="flex gap-3">
-                  <div className="flex-shrink-0 w-6 h-6 bg-green-600 rounded-full flex items-center justify-center font-bold text-xs">
-                    5
                   </div>
                   <p className="text-gray-300">
                     <span className="font-semibold text-white">
@@ -207,11 +198,11 @@ export default function RequestTradePage() {
                   htmlFor="sellerRobloxUsername"
                   className="text-sm sm:text-base text-white font-medium"
                 >
-                  Pseudo Roblox du trader
+                  Pseudo Roblox du vendeur
                 </Label>
                 <Input
                   id="sellerRobloxUsername"
-                  placeholder="Pseudo du trader"
+                  placeholder="Pseudo du vendeur"
                   className="bg-gray-800 border-gray-700 text-white text-sm sm:text-base h-12"
                   {...register("sellerRobloxUsername")}
                 />
@@ -239,7 +230,7 @@ export default function RequestTradePage() {
                     Ce que tu obtiens
                   </p>
                   <div className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs sm:text-sm font-bold">
-                    0,99€
+                    1,99€
                   </div>
                 </div>
                 <ul className="space-y-3 text-xs sm:text-sm">
@@ -275,7 +266,7 @@ export default function RequestTradePage() {
                 ) : (
                   <span className="flex items-center gap-2">
                     <Lock className="h-5 w-5" />
-                    Payer 0,99€ en toute sécurité
+                    Payer 1,99€ en toute sécurité
                     <ArrowRight className="h-5 w-5" />
                   </span>
                 )}

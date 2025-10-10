@@ -55,7 +55,7 @@ export default function Footer() {
               <button
                 className="flex items-center gap-2 text-muted-foreground text-sm hover:text-foreground"
                 onClick={() =>
-                  window.open("https://discord.gg/yourserver", "_blank")
+                  window.open("https://discord.gg/ATeHhkte", "_blank")
                 }
                 type="button"
               >

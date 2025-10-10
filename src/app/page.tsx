@@ -5,7 +5,6 @@ import {
   Plus,
   Search,
   Shield,
-  Star,
 } from "lucide-react";
 import Link from "next/link";
 import { FAQ } from "@/components/faq";

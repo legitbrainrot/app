@@ -244,10 +244,6 @@ export default function RequestTradePage() {
                   </li>
                   <li className="flex items-start gap-3 text-gray-200">
                     <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span>Remboursement garanti si problème sous 24h</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-gray-200">
-                    <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 flex-shrink-0 mt-0.5" />
                     <span>Support Discord réactif en cas de besoin</span>
                   </li>
                 </ul>

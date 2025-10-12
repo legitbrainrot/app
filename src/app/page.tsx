@@ -157,16 +157,6 @@ export default function HomePage() {
                   <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-300 text-sm sm:text-base">
                     <span className="font-semibold text-white">
-                      Remboursement automatique
-                    </span>{" "}
-                    Si l’autre joueur ne vient pas 💸 on te rembourse direct.
-                    Pas de stress. — transparence garantie, pas de frais cachés.
-                  </span>
-                </li>
-                <li className="flex gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300 text-sm sm:text-base">
-                    <span className="font-semibold text-white">
                       Preuves enregistrées :
                     </span>{" "}
                     toutes les étapes sont tracées via tickets et captures.

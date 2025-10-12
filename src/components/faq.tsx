@@ -19,11 +19,6 @@ const faqItems = [
       "Ce paiement garantit que le trade est sérieux et protège contre les arnaques. Le middleman vérifie que le trade se passe bien avant de valider. Un seul trader paie, pas les deux.",
   },
   {
-    question: "Que se passe-t-il si l'autre personne ne livre pas ?",
-    answer:
-      "Notre middleman protège votre paiement. Si l'autre partie ne respecte pas le trade, vous êtes remboursé intégralement.",
-  },
-  {
     question: "Comment puis-je être sûr que c'est sécurisé ?",
     answer:
       "Nous utilisons un système middleman professionnel. Aucun trade ne se fait directement entre les parties, tout passe par notre équipe de confiance.",

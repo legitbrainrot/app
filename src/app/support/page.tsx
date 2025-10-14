@@ -25,10 +25,10 @@ export default function SupportPage() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="mb-2 font-bold text-3xl">
-            Centre d'aide - Trades sécurisés
+            Centre d'aide - Serveurs modérés
           </h1>
           <p className="text-muted-foreground">
-            Assistance pour tes trades brainrot avec middleman de confiance
+            Assistance pour accéder à nos serveurs privés Roblox modérés
           </p>
         </div>
 
@@ -37,11 +37,11 @@ export default function SupportPage() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <MessageSquare className="h-5 w-5" />
-              Besoin d'aide pour tes trades ?
+              Besoin d'aide ?
             </CardTitle>
             <CardDescription>
               Rejoins notre Discord et ouvre un ticket pour une assistance
-              personnalisée sur les trades sécurisés
+              personnalisée sur l'accès aux serveurs
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -69,8 +69,8 @@ export default function SupportPage() {
               </Button>
             </div>
             <p className="mt-4 text-muted-foreground text-sm">
-              Notre équipe middleman répond généralement en 30 minutes pour
-              protéger tes trades (9h - 21h).
+              Notre équipe de modération répond généralement en 30 minutes (9h -
+              21h).
             </p>
           </CardContent>
         </Card>
@@ -82,17 +82,17 @@ export default function SupportPage() {
               <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
                 <Shield className="h-6 w-6 text-primary" />
               </div>
-              <CardTitle className="text-lg">Sécurité des trades</CardTitle>
+              <CardTitle className="text-lg">Accès et paiement</CardTitle>
               <CardDescription>
-                Protection par middleman, paiements sécurisés et vérification
+                Paiements sécurisés, accès aux serveurs et modération
               </CardDescription>
             </CardHeader>
             <CardContent>
               <ul className="space-y-2 text-muted-foreground text-sm">
-                <li>• Problèmes de paiement 2,50€</li>
-                <li>• Vérification de middleman</li>
-                <li>• Sécurité des trades</li>
-                <li>• Signaler une arnaque</li>
+                <li>• Problèmes de paiement 1,99€</li>
+                <li>• Accès au serveur modéré</li>
+                <li>• Vérification de modérateur</li>
+                <li>• Signaler un problème</li>
               </ul>
             </CardContent>
           </Card>
@@ -104,14 +104,14 @@ export default function SupportPage() {
               </div>
               <CardTitle className="text-lg">Questions générales</CardTitle>
               <CardDescription>
-                Comment trader, publier du brainrot et utiliser le middleman
+                Comment rejoindre un serveur et jouer au brainrot
               </CardDescription>
             </CardHeader>
             <CardContent>
               <ul className="space-y-2 text-muted-foreground text-sm">
-                <li>• Comment publier un brainrot</li>
-                <li>• Fonctionnement du trade</li>
-                <li>• Utiliser le middleman</li>
+                <li>• Comment rejoindre un serveur</li>
+                <li>• Fonctionnement de la modération</li>
+                <li>• Règles du serveur</li>
                 <li>• Meilleures pratiques</li>
               </ul>
             </CardContent>
@@ -126,7 +126,7 @@ export default function SupportPage() {
           <CardHeader>
             <CardTitle>Encore besoin d'aide ?</CardTitle>
             <CardDescription>
-              Plusieurs façons de contacter notre équipe middleman
+              Plusieurs façons de contacter notre équipe de modération
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -143,9 +143,9 @@ export default function SupportPage() {
               <div className="flex items-center gap-3 rounded-lg bg-muted/50 p-3">
                 <Shield className="h-5 w-5 text-primary" />
                 <div>
-                  <div className="font-medium">Protection 24/7</div>
+                  <div className="font-medium">Modération 24/7</div>
                   <div className="text-muted-foreground text-sm">
-                    Middleman d'urgence disponible
+                    Modérateur d'urgence disponible
                   </div>
                 </div>
               </div>
@@ -157,7 +157,7 @@ export default function SupportPage() {
                 ticket avec :
               </p>
               <ul className="ml-4 space-y-1 text-muted-foreground text-sm">
-                <li>• Ton nom d'utilisateur et infos de trade</li>
+                <li>• Ton nom d'utilisateur et serveur concerné</li>
                 <li>• Description détaillée de ton problème</li>
                 <li>• Captures d'écran si pertinentes</li>
                 <li>• Étapes déjà essayées</li>

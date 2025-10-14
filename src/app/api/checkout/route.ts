@@ -40,8 +40,8 @@ export async function POST(req: NextRequest) {
           price_data: {
             currency: "eur",
             product_data: {
-              name: `Service Middleman - ${server.name}`,
-              description: `Trade sécurisé entre ${buyerRobloxUsername} et ${sellerRobloxUsername}`,
+              name: `Accès Serveur Modéré - ${server.name}`,
+              description: `Accès au serveur privé modéré pour ${buyerRobloxUsername} et ${sellerRobloxUsername}`,
             },
             unit_amount: Math.round(server.price * 100), // Convert to cents
           },

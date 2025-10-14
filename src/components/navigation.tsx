@@ -35,7 +35,7 @@ export default function Navigation() {
           <div className="hidden md:flex items-center gap-1 bg-gradient-to-r from-green-500 to-emerald-600 px-3 py-1.5 rounded-full shadow-lg">
             <Shield className="h-4 w-4 text-white" />
             <span className="text-sm font-medium text-white">
-              Middleman de confiance
+              Modération professionnelle
             </span>
           </div>
 

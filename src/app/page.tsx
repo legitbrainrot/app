@@ -37,12 +37,11 @@ export default function HomePage() {
             LegitBrainrot
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-4 font-medium px-4">
-            Échange ton brainrot en toute sécurité avec nos middlemen de
-            confiance !
+            Rejoins nos serveurs privés Roblox avec modération professionnelle !
           </p>
-          <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-8 max-w-2xl mx-auto px-4">
-            Fini les arnaques ! Notre équipe protège chaque échange brainrot
-            (seulement 1,99€) grâce à notre service middleman vérifié.
+          <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-8 max-w-2xl mx-auto px-auto px-4">
+            Accède à un serveur privé modéré pour jouer au brainrot en toute
+            tranquillité (seulement 1,99€).
           </p>
           {/* Primary CTA - Above the fold */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 px-4">
@@ -59,17 +58,17 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Why Choose Our Middleman Section */}
+        {/* Why Choose Our Moderated Servers Section */}
         <div className="container mx-auto px-4 py-12 md:py-16 max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
-              Pourquoi choisir nos middlemen ?
+              Pourquoi rejoindre nos serveurs modérés ?
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4 leading-relaxed">
-              Faites vos échanges en toute confiance. Nos Middlemen sont des
-              intermédiaires neutres et vérifiés dont la mission est simple :
-              superviser chaque trade pour qu'il se déroule sans accroc —
-              rapidement, proprement et en toute transparence.
+              Joue au brainrot en toute tranquillité. Nos serveurs privés sont
+              surveillés par des modérateurs vérifiés dont la mission est simple
+              : assurer un environnement sécurisé — rapidement, proprement et en
+              toute transparence.
             </p>
           </div>
 
@@ -84,8 +83,7 @@ export default function HomePage() {
                   1. Choisissez votre serveur
                 </h4>
                 <p className="text-sm sm:text-base text-gray-400">
-                  Vous et l’autre trader devez sélectionner le même serveur
-                  privé Roblox avec middleman.
+                  Sélectionne un serveur privé Roblox avec modération active.
                 </p>
               </div>
               <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 hover:border-green-500 rounded-xl p-6 transition-all duration-300 hover:scale-105">
@@ -96,8 +94,8 @@ export default function HomePage() {
                   2. Remplissez le formulaire
                 </h4>
                 <p className="text-sm sm:text-base text-gray-400">
-                  Chacun entre son pseudo Roblox et celui de l’autre trader pour
-                  valider le trade.
+                  Entre ton pseudo Roblox et celui de ton ami pour réserver
+                  l'accès.
                 </p>
               </div>
               <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 hover:border-green-500 rounded-xl p-6 transition-all duration-300 hover:scale-105">
@@ -105,11 +103,11 @@ export default function HomePage() {
                   <Shield className="h-7 w-7 sm:h-8 sm:w-8 text-white" />
                 </div>
                 <h4 className="text-lg sm:text-xl font-bold text-white mb-2">
-                  3. Payez pour sécuriser le trade
+                  3. Payez pour accéder
                 </h4>
                 <p className="text-sm sm:text-base text-gray-400">
-                  Un seul d'entre vous paie 1,99 € pour activer le middleman et
-                  sécuriser le trade.
+                  Un seul participant paie 1,99 € pour débloquer l'accès au
+                  serveur privé modéré.
                 </p>
               </div>
               <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 hover:border-green-500 rounded-xl p-6 transition-all duration-300 hover:scale-105">
@@ -117,11 +115,11 @@ export default function HomePage() {
                   <ArrowRight className="h-7 w-7 sm:h-8 sm:w-8 text-white" />
                 </div>
                 <h4 className="text-lg sm:text-xl font-bold text-white mb-2">
-                  4. Rejoignez le serveur
+                  4. Rejoignez le serveur modéré
                 </h4>
                 <p className="text-sm sm:text-base text-gray-400">
-                  Rejoignez le lien du serveur privé reçu. Le middleman vous
-                  attend pour sécuriser votre trade ⚔️
+                  Rejoins le serveur privé via le lien reçu. Un modérateur y est
+                  présent pour superviser ⚔️
                 </p>
               </div>
             </div>
@@ -150,7 +148,7 @@ export default function HomePage() {
                     <span className="font-semibold text-white">
                       Comptes dédiés :
                     </span>{" "}
-                    les Middlemen n'utilisent jamais leur compte personnel.
+                    les modérateurs n'utilisent jamais leur compte personnel.
                   </span>
                 </li>
                 <li className="flex gap-3">
@@ -183,7 +181,7 @@ export default function HomePage() {
                 <li className="flex gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-300 text-sm sm:text-base">
-                    Chaque Middleman a passé une{" "}
+                    Chaque modérateur a passé une{" "}
                     <span className="font-semibold text-white">
                       vérification d'identité
                     </span>{" "}
@@ -217,7 +215,7 @@ export default function HomePage() {
           {/* CTA */}
           <div className="text-center mb-12">
             <p className="text-base sm:text-lg text-gray-200 mb-6 font-medium">
-              Prêt à sécuriser votre prochain trade ?
+              Prêt à rejoindre un serveur modéré ?
             </p>
             <Button
               asChild
@@ -226,7 +224,7 @@ export default function HomePage() {
             >
               <Link href="/servers">
                 <Shield className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
-                Demander un Middleman
+                Accéder à un serveur
                 <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 ml-2" />
               </Link>
             </Button>
@@ -241,8 +239,8 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-xl p-6 shadow-lg">
               <p className="text-sm sm:text-base text-gray-300 mb-4 italic">
-                "J'ai trade mon brainrot via le middleman pour 1,99€ ! Aucune
-                arnaque, super sécurisé !"
+                "J'ai rejoint un serveur modéré pour 1,99€ ! Ambiance sécurisée,
+                super expérience !"
               </p>
               <p className="text-green-400 font-bold text-sm">
                 - Lucas, 13 ans
@@ -250,15 +248,15 @@ export default function HomePage() {
             </div>
             <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-xl p-6 shadow-lg">
               <p className="text-sm sm:text-base text-gray-300 mb-4 italic">
-                "Enfin un service fiable ! Le middleman a vérifié tout le trade
-                avant de valider. Je recommande à 100% !"
+                "Enfin un serveur avec de vrais modérateurs ! Je me sens en
+                sécurité. Je recommande à 100% !"
               </p>
               <p className="text-green-400 font-bold text-sm">- Emma, 14 ans</p>
             </div>
             <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-xl p-6 shadow-lg">
               <p className="text-sm sm:text-base text-gray-300 mb-4 italic">
-                "Trop stylé ! J'ai eu mon brainrot en 10 minutes, tout s'est
-                super bien passé. Merci LegitBrainrot !"
+                "Trop stylé ! Le serveur est bien géré, tout s'est super bien
+                passé. Merci LegitBrainrot !"
               </p>
               <p className="text-green-400 font-bold text-sm">- Noah, 12 ans</p>
             </div>

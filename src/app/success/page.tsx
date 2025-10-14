@@ -45,17 +45,17 @@ export default async function SuccessPage({
             Paiement Réussi !
           </h1>
           <p className="text-xl text-gray-300">
-            Ton trade est maintenant en cours
+            Tu peux maintenant accéder au serveur modéré
           </p>
         </div>
 
         <Card className="bg-gray-900 border border-gray-800 mb-6">
           <CardHeader>
             <CardTitle className="text-2xl text-white">
-              Détails du Trade
+              Détails de l'accès
             </CardTitle>
             <CardDescription className="text-gray-400">
-              Informations sur ton trade sécurisé
+              Informations sur ton accès au serveur modéré
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -66,11 +66,11 @@ export default async function SuccessPage({
 
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
-                <p className="text-sm text-gray-400 mb-2">Acheteur</p>
+                <p className="text-sm text-gray-400 mb-2">Joueur 1</p>
                 <p className="text-lg font-semibold text-white">{buyer}</p>
               </div>
               <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
-                <p className="text-sm text-gray-400 mb-2">Vendeur</p>
+                <p className="text-sm text-gray-400 mb-2">Joueur 2</p>
                 <p className="text-lg font-semibold text-white">{seller}</p>
               </div>
             </div>
@@ -101,11 +101,11 @@ export default async function SuccessPage({
 */}
             <div className="bg-blue-900/20 border border-blue-500 rounded-lg p-4">
               <p className="text-sm font-semibold text-blue-400 mb-2">
-                📧 Email envoyé au middleman
+                📧 Email envoyé au modérateur
               </p>
               <p className="text-sm text-gray-300">
-                Le middleman a été notifié et vous attend sur le serveur privé
-                pour faciliter l'échange entre{" "}
+                Le modérateur a été notifié et vous attend sur le serveur privé.
+                Accès confirmé pour{" "}
                 <span className="font-semibold">{buyer}</span> et{" "}
                 <span className="font-semibold">{seller}</span>.
               </p>
@@ -131,13 +131,12 @@ export default async function SuccessPage({
                     Avant de rejoindre le serveur, fais une capture d'écran de
                     cette page
                   </span>{" "}
-                  et envoie-la à l'autre trader pour lui prouver que le paiement
-                  est réussi et que le trade est sécurisé.
+                  et envoie-la à ton ami pour lui montrer que le paiement est
+                  réussi et que l'accès est confirmé.
                 </p>
                 <p className="text-xs sm:text-sm text-orange-300">
-                  ✓ Cela rassure l'autre trader et accélère le trade
-                  <br />✓ C'est la preuve que tu as bien payé le service
-                  middleman
+                  ✓ Cela rassure ton ami et facilite la coordination
+                  <br />✓ C'est la preuve que l'accès au serveur est bien activé
                 </p>
               </div>
             </div>

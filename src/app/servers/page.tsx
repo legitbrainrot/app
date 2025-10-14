@@ -29,7 +29,7 @@ export default function ServersPage() {
             Serveurs Privés Disponibles
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 px-4">
-            Choisis ton serveur et commence à trader en toute sécurité pour
+            Choisis ton serveur et rejoins un environnement modéré pour
             seulement 1,99€
           </p>
 
@@ -41,11 +41,11 @@ export default function ServersPage() {
             </div>
             <div className="bg-gray-900/50 backdrop-blur border border-gray-800 rounded-lg p-3">
               <Users className="h-5 w-5 text-blue-400 mx-auto mb-1" />
-              <p className="text-xs text-gray-400">Middleman vérifié</p>
+              <p className="text-xs text-gray-400">Modération active</p>
             </div>
             <div className="bg-gray-900/50 backdrop-blur border border-gray-800 rounded-lg p-3">
               <Clock className="h-5 w-5 text-purple-400 mx-auto mb-1" />
-              <p className="text-xs text-gray-400">Trade rapide</p>
+              <p className="text-xs text-gray-400">Accès instantané</p>
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@ export default function ServersPage() {
                       className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-sm sm:text-base py-5 sm:py-6 shadow-lg transition-all duration-300 hover:scale-105"
                     >
                       <Link href={`/servers/${server.id}/request`}>
-                        Sécuriser mon trade (1,99€)
+                        Rejoindre ce serveur (1,99€)
                         <ArrowRight className="h-4 w-4 ml-2" />
                       </Link>
                     </Button>
@@ -112,8 +112,8 @@ export default function ServersPage() {
             Pas encore décidé ?
           </h2>
           <p className="text-sm sm:text-base text-gray-400 mb-6">
-            Tous nos serveurs sont 100% sécurisés avec middleman vérifié.
-            Satisfait ou remboursé !
+            Tous nos serveurs sont 100% sécurisés avec modération
+            professionnelle. Satisfait ou remboursé !
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button

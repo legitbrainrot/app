@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LegitBrainrot - Secure Digital Trading Platform",
-  description: "Trade digital collectibles securely with escrow protection",
+  title: "LegitBrainrot - Serveurs Privés Roblox Modérés",
+  description:
+    "Accède à des serveurs privés Roblox modérés pour jouer au brainrot en toute sécurité",
 };
 
 export default function RootLayout({

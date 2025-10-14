@@ -94,10 +94,10 @@ export default function RequestTradePage() {
           </div>
 
           <h1 className="font-bold mb-3 md:mb-4 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent leading-tight px-2">
-            Demande de Trade Sécurisé
+            Accès au Serveur Modéré
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-300 px-4">
-            Dernière étape avant de sécuriser ton trade pour 1,99€
+            Dernière étape avant de rejoindre le serveur pour 1,99€
           </p>
         </div>
 
@@ -119,7 +119,7 @@ export default function RequestTradePage() {
                     <span className="font-semibold text-white">
                       Remplis le formulaire
                     </span>{" "}
-                    avec les pseudos Roblox des deux traders
+                    avec ton pseudo et celui de ton ami
                   </p>
                 </div>
                 <div className="flex gap-3">
@@ -128,7 +128,7 @@ export default function RequestTradePage() {
                   </div>
                   <p className="text-gray-300">
                     <span className="font-semibold text-white">
-                      Un seul d'entre vous paie
+                      Un seul participant paie
                     </span>{" "}
                     1,99€ via Stripe de façon 100% sécurisée
                   </p>
@@ -144,17 +144,6 @@ export default function RequestTradePage() {
                     via le lien reçu après paiement
                   </p>
                 </div>
-                <div className="flex gap-3">
-                  <div className="flex-shrink-0 w-6 h-6 bg-green-600 rounded-full flex items-center justify-center font-bold text-xs">
-                    4
-                  </div>
-                  <p className="text-gray-300">
-                    <span className="font-semibold text-white">
-                      Trade en toute sécurité
-                    </span>{" "}
-                    avec le middleman vérifié
-                  </p>
-                </div>
               </div>
             </CardContent>
           </Card>
@@ -164,10 +153,10 @@ export default function RequestTradePage() {
           <CardHeader>
             <CardTitle className="text-xl sm:text-2xl text-white flex items-center gap-2">
               <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-green-500" />
-              Informations du Trade
+              Informations d'accès
             </CardTitle>
             <CardDescription className="text-sm sm:text-base text-gray-400">
-              Entre les pseudos Roblox des deux traders
+              Entre ton pseudo Roblox et celui de ton ami
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -198,11 +187,11 @@ export default function RequestTradePage() {
                   htmlFor="sellerRobloxUsername"
                   className="text-sm sm:text-base text-white font-medium"
                 >
-                  Pseudo Roblox du vendeur
+                  Pseudo Roblox de ton ami
                 </Label>
                 <Input
                   id="sellerRobloxUsername"
-                  placeholder="Pseudo du vendeur"
+                  placeholder="Pseudo de ton ami"
                   className="bg-gray-800 border-gray-700 text-white text-sm sm:text-base h-12"
                   {...register("sellerRobloxUsername")}
                 />
@@ -236,7 +225,7 @@ export default function RequestTradePage() {
                 <ul className="space-y-3 text-xs sm:text-sm">
                   <li className="flex items-start gap-3 text-gray-200">
                     <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span>Middleman vérifié protège ton trade à 100%</span>
+                    <span>Modération professionnelle active 24/7</span>
                   </li>
                   <li className="flex items-start gap-3 text-gray-200">
                     <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 flex-shrink-0 mt-0.5" />

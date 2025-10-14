@@ -23,19 +23,19 @@ export async function sendMiddlemanNotification({
     const { data, error } = await resend.emails.send({
       from: "Acme <onboarding@resend.dev>",
       to: middlemanEmail,
-      subject: `New Trade Request - ${serverName}`,
+      subject: `New Server Access Request - ${serverName}`,
       html: `
-        <h2>New Trade Request</h2>
-        <p>A new trade request has been received and paid for on <strong>${serverName}</strong>.</p>
+        <h2>New Server Access Request</h2>
+        <p>A new access request has been received and paid for on <strong>${serverName}</strong>.</p>
 
-        <h3>Trade Details:</h3>
+        <h3>Access Details:</h3>
         <ul>
-          <li><strong>Buyer Roblox Username:</strong> ${buyerRobloxUsername}</li>
-          <li><strong>Seller Roblox Username:</strong> ${sellerRobloxUsername}</li>
-          <li><strong>Trade Request ID:</strong> ${tradeRequestId}</li>
+          <li><strong>Player 1 Roblox Username:</strong> ${buyerRobloxUsername}</li>
+          <li><strong>Player 2 Roblox Username:</strong> ${sellerRobloxUsername}</li>
+          <li><strong>Access Request ID:</strong> ${tradeRequestId}</li>
         </ul>
 
-        <p>Please coordinate the trade between the two parties in the private server.</p>
+        <p>Please ensure moderation is active for these players in the private server.</p>
       `,
     });
 

@@ -12,9 +12,9 @@ export interface PrivateServer {
 export const mockPrivateServers: PrivateServer[] = [
   {
     id: "server-1",
-    name: "Serveur Trade 1",
+    name: "Serveur Brainrot 1",
     description:
-      "Serveur premium avec middleman certifié pour tous vos trades brainrot. Sécurisé et rapide !",
+      "Serveur premium avec modération professionnelle. Joue au brainrot en toute sécurité et rapidité !",
     price: 1.99,
     serverLink:
       "https://www.roblox.com/share?code=c89c8f6afff3e349841e1006d40840b2&type=Server",
@@ -23,9 +23,9 @@ export const mockPrivateServers: PrivateServer[] = [
   },
   {
     id: "server-2",
-    name: "Serveur Trade 2",
+    name: "Serveur Brainrot 2",
     description:
-      "Le meilleur serveur pour trader en toute sécurité. Middleman expérimenté disponible 24/7.",
+      "Le meilleur serveur pour jouer au brainrot. Modérateurs expérimentés disponibles 24/7.",
     price: 1.99,
     serverLink:
       "https://www.roblox.com/share?code=b8f37f02cea9a74896ef84a74abbf337&type=Server",
@@ -34,9 +34,9 @@ export const mockPrivateServers: PrivateServer[] = [
   },
   {
     id: "server-3",
-    name: "Serveur Trade 3",
+    name: "Serveur Brainrot 3",
     description:
-      "Serveur VIP pour les trades de qualité. Protection maximale garantie.",
+      "Serveur VIP pour une expérience de qualité. Modération maximale garantie.",
     price: 1.99,
     serverLink:
       "https://www.roblox.com/share?code=bc1f5a953545f64aa702504f584a1f98&type=Server",

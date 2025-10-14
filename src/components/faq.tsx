@@ -9,19 +9,19 @@ import {
 
 const faqItems = [
   {
-    question: "Comment fonctionne le middleman de confiance ?",
+    question: "Comment fonctionnent les serveurs modérés ?",
     answer:
-      "Notre équipe sécurise chaque trade brainrot. Un seul participant paie 1,99€ (au lieu de 4,99€) à notre middleman avant l'échange pour garantir zéro arnaque.",
+      "Nos serveurs privés Roblox sont surveillés par des modérateurs professionnels. Un seul participant paie 1,99€ (au lieu de 4,99€) pour accéder au serveur modéré et jouer en toute tranquillité.",
   },
   {
-    question: "Pourquoi payer 1,99€ pour trader ?",
+    question: "Pourquoi payer 1,99€ pour rejoindre un serveur ?",
     answer:
-      "Ce paiement garantit que le trade est sérieux et protège contre les arnaques. Le middleman vérifie que le trade se passe bien avant de valider. Un seul trader paie, pas les deux.",
+      "Ce paiement te donne accès à un serveur privé avec modération active. Les modérateurs assurent un environnement sécurisé pour tous les joueurs. Un seul participant paie pour l'accès.",
   },
   {
     question: "Comment puis-je être sûr que c'est sécurisé ?",
     answer:
-      "Nous utilisons un système middleman professionnel. Aucun trade ne se fait directement entre les parties, tout passe par notre équipe de confiance.",
+      "Nous utilisons des serveurs privés avec modération professionnelle. Tous les joueurs bénéficient de la surveillance de notre équipe de confiance.",
   },
 ];
 
@@ -32,8 +32,8 @@ interface FAQProps {
 }
 
 export function FAQ({
-  title = "Questions fréquentes sur les trades",
-  description = "Questions courantes sur notre service middleman de confiance",
+  title = "Questions fréquentes",
+  description = "Questions courantes sur nos serveurs privés modérés",
   className = "",
 }: FAQProps) {
   return (

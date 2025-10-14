@@ -22,8 +22,8 @@ export default function Footer() {
               <span className="font-semibold">LegitBrainrot</span>
             </div>
             <p className="text-muted-foreground text-sm">
-              Plateforme sécurisée d'échange de brainrot avec protection
-              middleman.
+              Serveurs privés Roblox modérés pour jouer au brainrot en toute
+              sécurité.
             </p>
           </div>
 
@@ -71,7 +71,7 @@ export default function Footer() {
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-muted-foreground text-sm">
                 <Shield className="h-3 w-3" />
-                Protection Middleman
+                Modération active
               </div>
             </div>
           </div>

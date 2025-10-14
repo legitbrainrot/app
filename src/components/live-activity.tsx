@@ -41,8 +41,8 @@ export function LiveActivity() {
         </div>
         <div className="flex-1 min-w-0">
           <p className="text-sm font-medium text-white truncate">
-            <span className="text-green-400">{currentTrade.name}</span> vient de
-            trader
+            <span className="text-green-400">{currentTrade.name}</span> a
+            rejoint un serveur
           </p>
           <p className="text-xs text-gray-400 mt-1">
             Il y a {currentTrade.time}

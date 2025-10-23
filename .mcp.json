@@ -1,15 +1,5 @@
 {
   "mcpServers": {
-    "prisma-local": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["prisma", "mcp"],
-      "env": {}
-    },
-    "better-auth": {
-      "type": "http",
-      "url": "https://mcp.chonkie.ai/better-auth/better-auth-builder/mcp"
-    },
     "context7": {
       "type": "stdio",
       "command": "npx",

@@ -16,8 +16,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a Next.js 15 application using the App Router with the following stack:
 
 - **Framework**: Next.js 15 with App Router and Turbopack
-- **Database**: PostgreSQL with Prisma ORM
-- **Authentication**: better-auth
 - **Styling**: Tailwind CSS v4 with shadcn/ui components (new-york style)
 - **Code Quality**: Biome for linting and formatting
 - **Git Hooks**: Husky with lint-staged for pre-commit checks
@@ -64,3 +62,21 @@ The project uses:
 - Docker Compose configuration available
 - Husky for Git hooks
 
+## Application Routes
+
+The application has the following public routes:
+
+- `/` - Homepage
+- `/support` - Support page
+- `/servers` - Servers listing page
+- `/servers/[serverId]/request` - Server request page (dynamic route)
+- `/success` - Success/confirmation page
+
+## SEO & Metadata
+
+- **Sitemap**: Dynamic sitemap at `/sitemap.xml` (configured in `src/app/sitemap.ts`)
+- **Robots.txt**: Dynamic robots.txt at `/robots.txt` (configured in `src/app/robots.ts`)
+- **Google Analytics**: Integrated via `@next/third-parties/google` (requires `NEXT_PUBLIC_GA_ID` in environment)
+- Both sitemap and robots.txt use `NEXT_PUBLIC_APP_URL` for generating absolute URLs
+
+When adding new public routes, update both `sitemap.ts` and ensure proper indexing rules in `robots.ts`.
